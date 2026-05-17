@@ -4,12 +4,15 @@ from google import genai
 from dotenv import load_dotenv
 load_dotenv()
 
+from pathlib import Path
+base = Path(__file__).resolve().parent
+
 def ramble():
     if len(sys.argv) < 2:
         print("example usage, $ ramble \"what is the answer to the life, the universe, and everything?\"")
     
     (_, prompt) = sys.argv
-    with open('tension', 'r') as f:
+    with open(f'{base}/tension/tension.md', 'r') as f:
         system_instruction = f.read()
     client = genai.Client()
 
