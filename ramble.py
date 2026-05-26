@@ -12,7 +12,7 @@ def ramble():
         print("example usage, $ ramble \"what is the answer to the life, the universe, and everything?\"")
     
     (_, prompt) = sys.argv
-    with open(f'{base}/tension/tension.md', 'r') as f:
+    with open(f'{base}/tension/tension', 'r') as f:
         system_instruction = f.read()
     client = genai.Client()
 
@@ -22,7 +22,7 @@ def ramble():
             contents=prompt,
             config=genai.types.GenerateContentConfig(
                 system_instruction=system_instruction,
-                temperature=0.4,
+                temperature=0.2,
             )
         )
 
